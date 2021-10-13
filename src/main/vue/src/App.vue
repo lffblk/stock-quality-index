@@ -1,15 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <TickerInput/>
+  <IndexTable/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TickerInput from './components/TickerInput.vue'
+import IndexTable from './components/IndexTable.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TickerInput,
+    IndexTable,
   }
 }
 </script>
@@ -20,7 +22,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
   margin-top: 60px;
+}
+html {
+  height: 100%;
+  background: -webkit-linear-gradient(
+      45deg, #49a09d, #5f2c82);
+  background: linear-gradient(
+      45deg, #49a09d, #5f2c82);
 }
 </style>

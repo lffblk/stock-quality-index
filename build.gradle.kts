@@ -32,12 +32,13 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-tasks.register<NpmTask>("npmBuild") {
+val npmBuild = tasks.register<NpmTask>("npmBuild") {
     dependsOn(tasks.npmInstall)
     npmCommand.set(listOf("run", "build"))
 }
 
-tasks.register<Copy>("copyFrontendContent") {
+tasks.register<Copy>("buildFrontend") {
+    dependsOn(npmBuild)
     from(layout.buildDirectory.dir("${project.projectDir}/src/main/vue/dist"))
     into(layout.buildDirectory.dir("${project.projectDir}/src/main/resources/public"))
 }
